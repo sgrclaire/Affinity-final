@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="fr" data-match="similar">
+<head>
+  <meta charset="utf-8">
+  <title>Affinity — Profils</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Profils Affinity — Rencontres par goûts culturels et personnalité.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/logo-heart-puzzle.svg" as="image" type="image/svg+xml">
+</head>
+
+<body>
+
+  <!-- HEADER (identique à index pour cohérence multi-page) -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo-title brand" href="index.html" aria-label="Aller à l’accueil">
+        <img src="assets/logo-heart-puzzle.svg" alt="Logo puzzle Affinity">
+        <span>Affinity</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="list--inline">
+          <a href="index.html">Accueil</a>
+          <a href="profils.html" aria-current="page">Profils</a>
+          <a href="quiz.html">Test</a>
+          <a href="webdoc.html">Webdoc</a>
+          <a href="mentions.html">Mentions</a>
+        </div>
+      </nav>
+
+      <div class="list--inline" role="group" aria-label="Choix de mode">
+        <button class="btn btn--ghost" id="btnSimilar" type="button" title="Qui se ressemble s’assemble">Ressemblance</button>
+        <button class="btn" id="btnOpposites" type="button" title="Les opposés s’attirent">Opposés</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main>
+
+    <!-- INTRO PROFILS -->
+    <section class="section">
+      <div class="container">
+        <h1>Découvre des personnalités compatibles avec toi.</h1>
+        <p class="lead">
+          Les profils Affinity sont générés à partir de goûts culturels (Spotify, Babelio, Letterboxd) et de traits de personnalité.
+          Selon ton mode — <strong>Ressemblance</strong> ou <strong>Opposés</strong> — les compatibilités varient.
+        </p>
+      </div>
+    </section>
+
+    <!-- FILTRES (non interactif, décoratif mais sémantique) -->
+    <section class="section">
+      <div class="container">
+        <div class="chips">
+          <span class="chip">Musique</span>
+          <span class="chip">Livres</span>
+          <span class="chip">Cinéma</span>
+          <span class="chip">Personnalité</span>
+          <span class="chip">Matching</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTE DES PROFILS -->
+    <section class="section" style="padding:2rem 0">
+      <div class="container grid grid--cards">
+
+        <!-- PROFIL 1 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex; gap:1rem; align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Alicia, 25</h3>
+                <p class="muted">Paris • Musique & cinéma</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span>88%</div>
+          </div>
+          <p>R'n'B alternatif, Sally Rooney, films A24. Introvertie, sensible, playlist « slow mornings ».</p>
+
+          <ul class="kpi-list">
+            <li><strong>Spotify :</strong> SZA, Jorja Smith, Ama Lou</li>
+            <li><strong>Babelio :</strong> Normal People, Conversations with Friends</li>
+            <li><strong>Letterboxd :</strong> Lady Bird, Waves, Moonlight</li>
+          </ul>
+
+          <a class="btn btn--subtle">Contact</a>
+        </article>
+
+        <!-- PROFIL 2 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex; gap:1rem; align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Mehdi, 29</h3>
+                <p class="muted">Lyon • Livres & podcasts</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span>74%</div>
+          </div>
+          <p>Polars nordiques, jazz électronique, podcasts sociétaux.</p>
+
+          <ul class="kpi-list">
+            <li><strong>Spotify :</strong> Alfa Mist, Chet Faker</li>
+            <li><strong>Babelio :</strong> Nesbø, Camilla Läckberg</li>
+            <li><strong>Letterboxd :</strong> Prisoners, Seven</li>
+          </ul>
+
+          <a class="btn btn--subtle">Contact</a>
+        </article>
+
+        <!-- PROFIL 3 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex; gap:1rem; align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Zoé, 27</h3>
+                <p class="muted">Marseille • Art & séries</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span>61%</div>
+          </div>
+          <p>Fan d'art moderne, séries HBO, électro-pop.</p>
+
+          <ul class="kpi-list">
+            <li><strong>Spotify :</strong> Mø, RÜFÜS DU SOL</li>
+            <li><strong>Babelio :</strong> Patti Smith, essais artistiques</li>
+            <li><strong>Letterboxd :</strong> Euphoria, Her</li>
+          </ul>
+
+          <a class="btn btn--subtle">Contact</a>
+        </article>
+
+        <!-- PROFIL 4 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex; gap:1rem; align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Clara, 26</h3>
+                <p class="muted">Nice • Engagement & lectures</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span>82%</div>
+          </div>
+          <p>Essais féministes, documentaires sociaux, playlists acoustiques.</p>
+
+          <ul class="kpi-list">
+            <li><strong>Babelio :</strong> Mona Chollet, Virginia Woolf</li>
+            <li><strong>Spotify :</strong> Novo Amor, The Paper Kites</li>
+            <li><strong>Letterboxd :</strong> Portrait de la jeune fille en feu</li>
+          </ul>
+
+          <a class="btn btn--subtle">Contact</a>
+        </article>
+
+        <!-- PROFIL 5 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex; gap:1rem; align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Yanis, 23</h3>
+                <p class="muted">Paris • Rap & SF</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span>79%</div>
+          </div>
+          <p>Rap alternatif, jeux narratifs, science-fiction dystopique.</p>
+
+          <ul class="kpi-list">
+            <li><strong>Spotify :</strong> Laylow, Damso, Joji</li>
+            <li><strong>Babelio :</strong> Dune, Fondation</li>
+            <li><strong>Letterboxd :</strong> Blade Runner, Arrival</li>
+          </ul>
+
+          <a class="btn btn--subtle">Contact</a>
+        </article>
+
+        <!-- PROFIL 6 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex; gap:1rem; align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Soren, 28</h3>
+                <p class="muted">Bruxelles • Art numérique & techno</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span>55%</div>
+          </div>
+          <p>Techno industrielle, installations numériques, festivals européens.</p>
+
+          <ul class="kpi-list">
+            <li><strong>Spotify :</strong> Charlotte de Witte, Nina Kraviz</li>
+            <li><strong>Babelio :</strong> Essais sur le numérique</li>
+            <li><strong>Letterboxd :</strong> Ex Machina</li>
+          </ul>
+
+          <a class="btn btn--subtle">Contact</a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Affinity — Prototype étudiant.  
+      <a href="mailto:sgr.claire@gmail.com?subject=Contact%20Affinity&body=Bonjour%2C%20je%20vous%20écris%20depuis%20la%20page%20Profils.">
+        Nous contacter
+      </a></p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const root = document.documentElement;
+    document.getElementById('btnSimilar').addEventListener('click', () => {
+      root.setAttribute('data-match','similar');
+    });
+    document.getElementById('btnOpposites').addEventListener('click', () => {
+      root.setAttribute('data-match','opposites');
+    });
+  </script>
+
+</body>
+</html>

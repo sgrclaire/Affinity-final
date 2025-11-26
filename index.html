@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr" data-match="similar">
+<head>
+  <meta charset="utf-8">
+  <title>Affinity — Rencontres par intérêts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Affinity : rencontres par goûts culturels et personnalité (Spotify, Babelio, Letterboxd).">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/logo-heart-puzzle.svg" as="image" type="image/svg+xml">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo-title brand" href="index.html" aria-label="Aller à l’accueil">
+        <img src="assets/logo-heart-puzzle.svg" alt="Logo cœur puzzle Affinity">
+        <span>Affinity</span>
+      </a>
+
+      <!-- NAVIGATION PRINCIPALE -->
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="list--inline">
+          <a href="index.html" aria-current="page">Accueil</a>
+          <a href="profils.html">Profils</a>
+          <a href="quiz.html">Test</a>
+          <a href="webdoc.html">Webdoc</a>
+          <a href="mentions.html">Mentions</a>
+        </div>
+      </nav>
+
+      <!-- SWITCH MODE -->
+      <div class="list--inline" role="group" aria-label="Choix de mode">
+        <button class="btn btn--ghost" id="btnSimilar" type="button" title="Qui se ressemble s’assemble">Ressemblance</button>
+        <button class="btn" id="btnOpposites" type="button" title="Les opposés s’attirent">Opposés</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container grid grid--2">
+        <div>
+          <h1>Rencontres par goûts <a href="glossaire.html#term-traces" class="glossary-ref">traces numériques</a> & personnalité.</h1>
+
+          <p class="lead">
+            Connecte Spotify, Babelio, Letterboxd et choisis ton mode :
+            « qui se ressemble s’assemble » (clair) ou « les opposés s’attirent » (sombre).
+          </p>
+
+          <div class="list--inline" style="margin-top:1rem">
+            <a class="btn" href="quiz.html">Passer le test</a>
+            <a class="btn btn--ghost" href="profils.html">Voir les profils</a>
+          </div>
+        </div>
+
+        <!-- Sources connectées -->
+        <aside class="card" aria-labelledby="sources-title">
+          <h3 id="sources-title">Sources connectées</h3>
+          <p class="muted" style="margin:0">
+            Toutes les données restent privées (prototype étudiant).
+          </p>
+          <div class="chips" style="margin-top:.6rem">
+            <span class="chip">Spotify</span>
+            <span class="chip">Babelio</span>
+            <span class="chip">Letterboxd</span>
+            <span class="chip">Test de personnalité</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VISUEL DOCUMENTÉ OBLIGATOIRE -->
+    <section class="visual-doc" aria-label="Illustration du concept Affinity">
+      <figure class="container center">
+        <img src="assets/schema-matching.png" alt="Schéma explicatif du matching par similarité et opposition" class="doc-image">
+        <figcaption class="muted" style="margin-top:.5rem">
+          <strong>Figure 1.</strong> Schéma conceptuel du matching Affinity : similarité (clarté) ou opposition (contraste).
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- VIDÉO NOIR & BLANC CENTRÉE -->
+    <section class="hero--video" aria-label="Vidéo de présentation">
+      <video controls preload="metadata" poster="assets/schema-matching.png">
+        <source src="assets/demo.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+      </video>
+      <p class="muted center" style="margin-top:.5rem">
+        <strong>Vidéo 1.</strong> Présentation synthétique du prototype Affinity (interface, logique documentaire et design).
+      </p>
+    </section>
+
+    <!-- APERÇU WEB DOCUMENTAIRE -->
+    <section class="section">
+      <div class="container">
+        <h2>Pourquoi les goûts révèlent-ils les affinités&nbsp;?</h2>
+        <p>
+          Dans le <a href="webdoc.html">web documentaire</a>, nous analysons comment les
+          <a href="glossaire.html#term-algo" class="glossary-ref">algorithmes de recommandation</a>,
+          les <a href="glossaire.html#term-biais" class="glossary-ref">biais cognitifs</a>
+          et les <a href="glossaire.html#term-traces" class="glossary-ref">traces culturelles</a>
+          influencent nos rencontres.
+        </p>
+      </div>
+    </section>
+
+    <!-- TEASER PROFILS (6 PROFILS OBLIGATOIRES) -->
+    <section class="section" style="padding:2.5rem 0; border-top:1px solid var(--outline);">
+      <div class="container grid grid--cards">
+
+        <!-- Ton profil 1, 2, 3 sont conservés -->
+        <!-- (… Alicia, Mehdi, Zoé déjà présents — inchangés …) -->
+
+        <!-- PROFIL 4 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex;gap:1rem;align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Yanis, 23</h3>
+                <p class="muted" style="margin:0">Paris • Rap & SF</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span> 79%</div>
+          </div>
+          <p>Rappeurs alternatifs, science-fiction, thrillers psychologiques.</p>
+          <div class="badges">
+            <span class="badge badge--spotify"><span class="badge__dot"></span>Spotify</span>
+          </div>
+          <a class="btn btn--subtle" href="profils.html">Voir plus</a>
+        </article>
+
+        <!-- PROFIL 5 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex;gap:1rem;align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Clara, 26</h3>
+                <p class="muted" style="margin:0">Nice • Lectures & féminisme</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span> 82%</div>
+          </div>
+          <p>Essais féministes, playlists acoustiques, cinéma engagé.</p>
+          <div class="badges">
+            <span class="badge badge--babelio"><span class="badge__dot"></span>Babelio</span>
+          </div>
+          <a class="btn btn--subtle" href="profils.html">Voir plus</a>
+        </article>
+
+        <!-- PROFIL 6 -->
+        <article class="card">
+          <div class="card__header">
+            <div style="display:flex;gap:1rem;align-items:center">
+              <div class="avatar"></div>
+              <div>
+                <h3>Soren, 28</h3>
+                <p class="muted" style="margin:0">Bruxelles • Art & techno</p>
+              </div>
+            </div>
+            <div class="badge"><span class="badge__dot"></span> 55%</div>
+          </div>
+          <p>Techno industrielle, art numérique, musées modernes.</p>
+          <div class="badges">
+            <span class="badge badge--letterboxd"><span class="badge__dot"></span>Letterboxd</span>
+          </div>
+          <a class="btn btn--subtle" href="profils.html">Voir plus</a>
+        </article>
+
+      </div>
+
+      <div class="container center" style="margin-top:1.25rem">
+        <a class="btn" href="profils.html" aria-label="Voir tous les profils">Voir tous les profils</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER COMPLET (OBLIGATOIRE) -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Affinity — Prototype étudiant (Master CTM).  
+      Licence CC-BY-NC 4.0 —  
+      <a href="mailto:sgr.claire@gmail.com?subject=Contact%20Affinity&body=Bonjour%2C%20je%20vous%20écris%20via%20votre%20site.">
+        Nous contacter
+      </a>.
+      </p>
+
+      <!-- Easter egg discret -->
+      <p class="muted" style="font-size:.8rem;margin-top:.25rem">
+        “Si vous lisez ceci, Monsieur Kembellec, sachez que cette phrase n’existe qu’en mode sombre.” 😉
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS minimal -->
+  <script>
+    // année
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // bascule de thème
+    const root = document.documentElement;
+    document.getElementById('btnSimilar').addEventListener('click', () => {
+      root.setAttribute('data-match','similar');
+    });
+    document.getElementById('btnOpposites').addEventListener('click', () => {
+      root.setAttribute('data-match','opposites');
+    });
+
+    // Easter egg en console
+    console.log('%cEaster egg Kembellec: Félicitations d’avoir cherché ici !', 'color:#888;font-size:14px');
+  </script>
+
+</body>
+</html>

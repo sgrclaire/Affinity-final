@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr" data-match="similar">
+<head>
+  <meta charset="utf-8">
+  <title>Affinity — Web documentaire (Document numérique)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Web documentaire Affinity : rencontres par affinités culturelles et personnalité (projet Master CTM, cours Document numérique).">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- HEADER GLOBAL -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo-title brand" href="index.html" aria-label="Retour à l’accueil">
+        <img src="assets/logo-heart-puzzle.svg" alt="Logo cœur puzzle Affinity">
+        <span>Affinity — Webdoc</span>
+      </a>
+
+      <!-- NAV PRINCIPALE DU SITE -->
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="list--inline">
+          <a href="index.html">Accueil</a>
+          <a href="profils.html">Profils</a>
+          <a href="quiz.html">Test</a>
+          <a href="webdoc.html" aria-current="page">Webdoc</a>
+          <a href="mentions.html">Mentions</a>
+        </div>
+      </nav>
+
+      <!-- SWITCH MODE -->
+      <div class="list--inline" role="group" aria-label="Choix de mode">
+        <button class="btn btn--ghost" id="btnSimilar" type="button" title="Qui se ressemble s’assemble">Ressemblance</button>
+        <button class="btn" id="btnOpposites" type="button" title="Les opposés s’attirent">Opposés</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="container" style="padding:2.2rem 0 3rem;">
+
+    <!-- SOMMAIRE DU WEBDOC -->
+    <nav class="toc" aria-label="Sommaire du web documentaire">
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#article">Article (document numérique)</a></li>
+        <li><a href="#glossaire">Glossaire</a></li>
+        <li><a href="#biblio">Bibliographie & sitographie</a></li>
+      </ul>
+    </nav>
+
+    <!-- INTRODUCTION -->
+    <section id="intro" class="stack-2" style="margin-bottom:2rem;">
+      <h1>« Affinity » — Rencontres par affinités culturelles</h1>
+      <p class="lead">
+        Web documentaire réalisé dans le cadre du cours « Document numérique » (Master CTM, Université Paris 1 Panthéon-Sorbonne). 
+        Ce projet interroge la rencontre amoureuse et amicale à travers la culture, la personnalité et nos 
+        <a class="def-ref" href="#g-traces" id="u-traces">traces numériques</a>.
+      </p>
+      <p>
+        Extrait de consigne : « le document doit être décomposé en parties et comporter un 
+        <a class="def-ref" href="#g-webdoc" id="u-webdoc">glossaire</a> ». 
+        Cette page illustre ces exigences tout en documentant la démarche éditoriale et technique d’Affinity.
+      </p>
+    </section>
+
+    <!-- ARTICLE (au sens HTML5) -->
+    <article id="article" aria-labelledby="titre-article">
+      <h2 id="titre-article">Article — Documenter une rencontre par les goûts</h2>
+
+      <!-- PARTIE 1 -->
+      <section id="partie-1" class="stack-2">
+        <h3>1. Contexte : des applications de rencontre aux affinités culturelles</h3>
+        <p>
+          La plupart des plateformes de rencontre en ligne se structurent autour de la 
+          géolocalisation, de l’interface de type « swipe » et d’un tri initial basé 
+          sur l’apparence. Affinity propose un déplacement du regard : la rencontre part 
+          de ce que les personnes <em>écoutent</em>, <em>lisent</em> et <em>regardent</em>.
+        </p>
+        <p>
+          Plutôt que d’aligner des photos, le prototype exploite des informations issues de 
+          Spotify, Babelio et Letterboxd. Ces données sont des 
+          <a class="def-ref" href="#g-traces">traces numériques</a> de la vie culturelle 
+          des utilisateur·rices. Elles permettent de construire un 
+          <a class="def-ref" href="#g-profilage" id="u-profilage">profilage</a> centré sur les goûts 
+          plutôt que sur le physique.
+        </p>
+      </section>
+
+      <!-- PARTIE 2 -->
+      <section id="partie-2" class="stack-2">
+        <h3>2. Architecture éditoriale et technique</h3>
+        <p>
+          L’expérience Affinity repose sur deux modes : 
+          <strong>« Ressemblance »</strong> (thème clair) et 
+          <strong>« Opposés »</strong> (thème sombre). Ce choix est matérialisé par 
+          l’attribut <code>data-match</code> au niveau de la balise 
+          <code>&lt;html&gt;</code>. La bascule graphique rappelle que la 
+          <a class="def-ref" href="#g-similarite" id="u-similarite">similarité</a> 
+          et la <a class="def-ref" href="#g-opposition" id="u-opposition">dissonance</a> 
+          sont des décisions éditoriales autant que techniques.
+        </p>
+        <p>
+          Les données sont obtenues, dans un scénario réel, via des 
+          <a class="def-ref" href="#g-api" id="u-api">API</a> publiques : 
+          Spotify pour la musique, Babelio pour les livres, Letterboxd pour le cinéma. 
+          Ces flux alimentent un système de 
+          <a class="def-ref" href="#g-matching" id="u-matching">matching</a> 
+          qui combine affinités culturelles et résultats du test de personnalité.
+        </p>
+
+        <!-- VISUEL DOCUMENTÉ -->
+        <figure class="card">
+          <img src="assets/schema-matching.png" alt="Schéma simplifié du processus de matching Affinity" style="max-width:100%;border-radius:10px;">
+          <figcaption>
+            Figure&nbsp;1 — Chaîne de traitement : de la trace culturelle (Spotify, Babelio, Letterboxd)
+            au score de matching (source : équipe projet Affinity).
+          </figcaption>
+        </figure>
+
+        <!-- VIDÉO -->
+        <p>
+          La vidéo suivante montre une navigation type : passage du mode « Ressemblance » 
+          au mode « Opposés », consultation de profils et lancement du test.
+        </p>
+        <video controls width="100%" style="max-width:640px; border:1px solid var(--outline); border-radius:10px;">
+          <source src="assets/demo.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo HTML5.
+        </video>
+      </section>
+
+      <!-- PARTIE 3 -->
+      <section id="partie-3" class="stack-2">
+        <h3>3. Similarité, opposition et <span lang="en">biais cognitifs</span></h3>
+        <p>
+          Derrière la promesse « qui se ressemble s’assemble » se cache l’
+          <a class="def-ref" href="#g-biais" id="u-biais">effet de simple exposition</a> : 
+          plus nous voyons des choses semblables, plus nous les jugeons familières et rassurantes. 
+          À l’inverse, la mise en avant d’opposés joue sur la curiosité et la 
+          <a class="def-ref" href="#g-opposition">dissonance cognitive</a>.
+        </p>
+        <p>
+          Affinity ne prétend pas prédire l’issue d’une relation. Le dispositif invite plutôt 
+          à prendre conscience que nos recommandations culturelles sont produites par des 
+          <a class="def-ref" href="#g-algo" id="u-algo">algorithmes de recommandation</a> 
+          conçus pour optimiser l’engagement, pas nécessairement la qualité d’une rencontre.
+        </p>
+        <p>
+          En exposant ces mécanismes dans un web documentaire, le projet encourage une lecture 
+          critique des interfaces de rencontre, de leurs filtres et de leurs valeurs implicites.
+        </p>
+      </section>
+
+      <!-- PARTIE 4 -->
+      <section id="partie-4" class="stack-2">
+        <h3>4. Données, éthique et ré-exploitation</h3>
+        <p>
+          Toute utilisation d’une <strong>API</strong> externe implique une réflexion sur la 
+          <a class="def-ref" href="#g-rgpd" id="u-rgpd">protection des données personnelles</a>. 
+          Dans Affinity, les scénarios décrits restent au stade de prototype : 
+          aucune connexion réelle aux comptes Spotify, Babelio ou Letterboxd n’est effectuée. 
+          L’interface simule ce que serait une telle plateforme.
+        </p>
+        <p>
+          Les contenus tiers (pochettes, visuels, extraits de résumés) doivent être crédités 
+          et réutilisés dans un cadre conforme au droit d’auteur. C’est pourquoi le webdoc 
+          affiche clairement sa nature de projet étudiant, non commercial, et indique sa 
+          <a class="def-ref" href="#g-licence">licence de ré-exploitation</a>.
+        </p>
+        <p>
+          Enfin, la structure HTML5, le contraste du thème clair/sombre et l’organisation en 
+          sections contribuent à l’accessibilité du document : navigation clavier, repères visuels, 
+          et lisibilité des paragraphes longs.
+        </p>
+      </section>
+
+      <!-- PARTIE 5 -->
+      <section id="partie-5" class="stack-2">
+        <h3>5. Design éditorial : un cœur puzzle entre luxe et minimalisme</h3>
+        <p>
+          Le logo en forme de cœur puzzle traduit l’idée de pièces différentes qui s’assemblent. 
+          Le choix d’un design en noir et blanc, légèrement inspiré des interfaces de plateformes 
+          de streaming, renforce l’aspect chic et futuriste du projet. 
+        </p>
+        <p>
+          Les titres utilisent une police sans empattement, contemporaine et minimale, tandis que 
+          le texte courant repose sur une police plus classique, à empattement, qui rappelle la 
+          tradition éditoriale des articles universitaires. Affinity assume ce double héritage : 
+          entre culture <em>grand public</em> et rigueur documentaire du Master CTM.
+        </p>
+      </section>
+    </article>
+
+    <!-- GLOSSAIRE COMPLET -->
+    <section id="glossaire" style="margin-top:2.5rem;">
+      <h2>Glossaire</h2>
+      <dl>
+        <dt id="g-api">
+          API 
+          <a class="backref" href="#u-api" aria-label="Revenir à l’usage d’API">↩︎</a>
+        </dt>
+        <dd>
+          Interface de Programmation Applicative : permet à deux systèmes logiciels de communiquer.
+          Dans Affinity, les API de Spotify, Babelio et Letterboxd serviraient à récupérer des listes 
+          de morceaux, de livres ou de films.
+        </dd>
+
+        <dt id="g-matching">
+          Matching 
+          <a class="backref" href="#u-matching" aria-label="Revenir à l’usage de matching">↩︎</a>
+        </dt>
+        <dd>
+          Procédure de rapprochement entre profils à partir de critères choisis : similarité de goûts, 
+          complémentarité de personnalités, contraintes géographiques, etc.
+        </dd>
+
+        <dt id="g-webdoc">
+          Web documentaire 
+          <a class="backref" href="#u-webdoc" aria-label="Revenir à l’usage de web documentaire">↩︎</a>
+        </dt>
+        <dd>
+          Document numérique structuré en parties, enrichi de médias (images, vidéo, audio) et 
+          d’une navigation interactive. Ici, l’article HTML5 constitue le cœur du webdoc.
+        </dd>
+
+        <dt id="g-traces">
+          Traces numériques 
+          <a class="backref" href="#u-traces" aria-label="Revenir à l’usage de traces numériques">↩︎</a>
+        </dt>
+        <dd>
+          Ensemble des données laissées par les activités en ligne : historiques d’écoute, listes 
+          de lecture, critiques de livres, notes de films, etc.
+        </dd>
+
+        <dt id="g-biais">
+          Biais cognitifs 
+          <a class="backref" href="#u-biais" aria-label="Revenir à l’usage de biais cognitifs">↩︎</a>
+        </dt>
+        <dd>
+          Raccourcis de pensée qui influencent notre jugement. L’effet de simple exposition, par 
+          exemple, nous pousse à préférer ce que nous avons déjà vu ou entendu.
+        </dd>
+
+        <dt id="g-algo">
+          Algorithmes de recommandation 
+          <a class="backref" href="#u-algo" aria-label="Revenir à l’usage d’algorithmes de recommandation">↩︎</a>
+        </dt>
+        <dd>
+          Modèles mathématiques utilisés pour suggérer des contenus (musiques, vidéos, profils). 
+          Ils sont au cœur du fonctionnement d’Affinity comme des plateformes de streaming.
+        </dd>
+
+        <dt id="g-profilage">
+          Profilage 
+          <a class="backref" href="#u-profilage" aria-label="Revenir à l’usage de profilage">↩︎</a>
+        </dt>
+        <dd>
+          Construction d’un profil d’utilisateur·rice à partir de données multiples 
+          (goûts, comportements, interactions), pour personnaliser les recommandations.
+        </dd>
+
+        <dt id="g-rgpd">
+          RGPD 
+          <a class="backref" href="#u-rgpd" aria-label="Revenir à l’usage de RGPD">↩︎</a>
+        </dt>
+        <dd>
+          Règlement Général sur la Protection des Données : cadre juridique européen encadrant 
+          la collecte, le traitement et la conservation des données personnelles.
+        </dd>
+
+        <dt id="g-similarite">
+          Similarité 
+          <a class="backref" href="#u-similarite" aria-label="Revenir à l’usage de similarité">↩︎</a>
+        </dt>
+        <dd>
+          Proximité entre deux profils (valeurs, goûts, modes de vie). Dans Affinity, le mode 
+          « Ressemblance » privilégie cette dimension.
+        </dd>
+
+        <dt id="g-opposition">
+          Opposition / dissonance 
+          <a class="backref" href="#u-opposition" aria-label="Revenir à l’usage d’opposition">↩︎</a>
+        </dt>
+        <dd>
+          Distance volontaire entre deux profils, pensée comme source de découverte et de 
+          remise en question. Le mode « Opposés » joue sur cette tension.
+        </dd>
+
+        <dt id="g-licence">
+          Licence de ré-exploitation
+        </dt>
+        <dd>
+          Règles qui encadrent la réutilisation d’un contenu. Ce webdoc est placé sous licence 
+          Creative Commons CC BY-NC 4.0 : la réutilisation non commerciale est autorisée, sous 
+          réserve de citer la source.
+        </dd>
+      </dl>
+    </section>
+
+    <!-- BIBLIOGRAPHIE / SITOGRAPHIE (avec COinS) -->
+    <section id="biblio" style="margin-top:2.5rem;">
+      <h2>Bibliographie & sitographie</h2>
+      <ul class="biblio">
+        <li>
+          <cite>Spotify for Developers — Web API</cite> — 
+          <a href="https://developer.spotify.com/documentation/web-api" target="_blank" rel="noopener">Consulter</a>
+          <span class="Z3988" title="ctx_ver=Z39.88-2004&rft.genre=unknown&rft.title=Spotify%20Web%20API&rft_id=https://developer.spotify.com/documentation/web-api"></span>
+        </li>
+        <li>
+          <cite>Babelio — Aide & données</cite> — 
+          <a href="https://www.babelio.com" target="_blank" rel="noopener">Consulter</a>
+          <span class="Z3988" title="ctx_ver=Z39.88-2004&rft.genre=unknown&rft.title=Babelio&rft_id=https://www.babelio.com"></span>
+        </li>
+        <li>
+          <cite>Letterboxd — API & intégrations</cite> — 
+          <a href="https://letterboxd.com/about/api/" target="_blank" rel="noopener">Consulter</a>
+          <span class="Z3988" title="ctx_ver=Z39.88-2004&rft.genre=unknown&rft.title=Letterboxd%20API&rft_id=https://letterboxd.com/about/api/"></span>
+        </li>
+        <li>
+          <cite>boyd, d. (2014). <span lang="en">It’s Complicated: The Social Lives of Networked Teens</span>. Yale University Press.</cite>
+          <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=It%27s%20Complicated&rft.aulast=boyd&rft.au=danah%20boyd&rft.date=2014&rft.pub=Yale%20University%20Press"></span>
+        </li>
+        <li>
+          <cite>Pariser, E. (2011). <span lang="en">The Filter Bubble</span>. Penguin Press.</cite>
+          <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=The%20Filter%20Bubble&rft.aulast=Pariser&rft.au=Eli%20Pariser&rft.date=2011&rft.pub=Penguin%20Press"></span>
+        </li>
+      </ul>
+      <p class="muted">
+        Les balises COinS (<code>.Z3988</code>) rendent ces références détectables par des outils 
+        comme Zotero (clic droit &laquo; Enregistrer dans Zotero &raquo;).
+      </p>
+    </section>
+  </main>
+
+  <!-- PIED DE PAGE -->
+  <footer class="footer">
+    <div class="container stack-2">
+      <p>
+        <strong>Mentions légales :</strong> site pédagogique réalisé dans le cadre du cours 
+        « Document numérique » (Master CTM) encadré par Gérald Kembellec. Prototype sans collecte 
+        réelle de données.
+      </p>
+      <p>
+        <strong>Licence :</strong> Creative Commons CC BY-NC 4.0 (réutilisation non commerciale 
+        avec attribution). © <span id="year"></span> Affinity.
+      </p>
+      <p>
+        <a href="mailto:sgr.claire@gmail.com?subject=Projet%20Affinity%20%E2%80%94%20Webdoc&body=Bonjour,%20je%20vous%20%C3%A9cris%20%C3%A0%20propos%20du%20webdoc%20Affinity.">
+          Nous écrire
+        </a>
+      </p>
+      <p class="muted" style="font-size:.8rem">
+        Si vous lisez cette ligne en détail, Monsieur Kembellec, sachez que vous êtes notre prof préféré.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // année dynamique
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // bascule de thème
+    const root = document.documentElement;
+    document.getElementById('btnSimilar').addEventListener('click', () => {
+      root.setAttribute('data-match', 'similar');
+    });
+    document.getElementById('btnOpposites').addEventListener('click', () => {
+      root.setAttribute('data-match', 'opposites');
+    });
+  </script>
+</body>
+</html>

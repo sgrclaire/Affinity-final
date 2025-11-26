@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr" data-match="similar">
+<head>
+  <meta charset="utf-8">
+  <title>Affinity — Test de personnalité</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Test de personnalité Affinity : découvrez si vous cherchez votre opposé ou quelqu’un qui vous ressemble.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/logo-heart-puzzle.svg" as="image" type="image/svg+xml">
+</head>
+
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo-title brand" href="index.html" aria-label="Aller à l’accueil">
+        <img src="assets/logo-heart-puzzle.svg" alt="Logo Affinity">
+        <span>Affinity</span>
+      </a>
+
+      <nav class="main-nav">
+        <div class="list--inline">
+          <a href="index.html">Accueil</a>
+          <a href="profils.html">Profils</a>
+          <a href="quiz.html" aria-current="page">Test</a>
+          <a href="webdoc.html">Webdoc</a>
+          <a href="mentions.html">Mentions</a>
+        </div>
+      </nav>
+
+      <div class="list--inline" role="group" aria-label="Choix de mode">
+        <button class="btn btn--ghost" id="btnSimilar" type="button">Ressemblance</button>
+        <button class="btn" id="btnOpposites" type="button">Opposés</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU : TEST -->
+  <main>
+
+    <section class="section">
+      <div class="container" style="max-width:720px">
+
+        <h1>Test de personnalité Affinity</h1>
+        <p class="lead">
+          Découvrez si vous êtes plutôt <strong>« qui se ressemble s’assemble »</strong>  
+          ou <strong>« les opposés s’attirent »</strong>.
+        </p>
+
+        <p>
+          Ce test repose sur des dimensions simples de personnalité et sur votre rapport à la 
+          <a href="glossaire.html#term-similarite" class="glossary-ref">similarité</a> 
+          ou à la <a href="glossaire.html#term-opposition" class="glossary-ref">dissonance cognitive</a>.  
+          Il n’est pas scientifique, mais il aide à comprendre comment Affinity ajuste vos compatibilités.
+        </p>
+
+        <!-- FORMULAIRE -->
+        <form id="affinityTest" class="quiz">
+
+          <!-- Question 1 -->
+          <fieldset class="quiz__question">
+            <legend>1. Une soirée parfaite pour vous, c’est…</legend>
+            <label class="quiz__option">
+              <input type="radio" name="q1" value="similar">
+              Rester dans une ambiance familière avec des gens au même style.
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="q1" value="opposites">
+              Rencontrer des gens totalement différents et explorer d’autres univers.
+            </label>
+          </fieldset>
+
+          <!-- Question 2 -->
+          <fieldset class="quiz__question">
+            <legend>2. Lorsque vous découvrez une playlist Spotify…</legend>
+            <label class="quiz__option">
+              <input type="radio" name="q2" value="similar">
+              Vous aimez retrouver ce que vous connaissez déjà.
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="q2" value="opposites">
+              Vous cherchez des sons que vous ne comprendriez pas normalement.
+            </label>
+          </fieldset>
+
+          <!-- Question 3 -->
+          <fieldset class="quiz__question">
+            <legend>3. En amour, ce qui compte le plus pour vous :</legend>
+            <label class="quiz__option">
+              <input type="radio" name="q3" value="similar">
+              Les valeurs communes, les habitudes partagées.
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="q3" value="opposites">
+              Le fait que l’autre vous pousse hors de vos zones de confort.
+            </label>
+          </fieldset>
+
+          <!-- Question 4 -->
+          <fieldset class="quiz__question">
+            <legend>4. En littérature ou cinéma :</legend>
+            <label class="quiz__option">
+              <input type="radio" name="q4" value="similar">
+              Vous aimez retrouver vos auteurs / réalisateurs préférés.
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="q4" value="opposites">
+              Vous aimez aller vers des genres contraires à vos routines.
+            </label>
+          </fieldset>
+
+          <!-- Question 5 -->
+          <fieldset class="quiz__question">
+            <legend>5. Dans une relation :</legend>
+            <label class="quiz__option">
+              <input type="radio" name="q5" value="similar">
+              Vous recherchez la stabilité et la compréhension immédiate.
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="q5" value="opposites">
+              Vous voulez quelqu’un qui vous surprenne.
+            </label>
+          </fieldset>
+
+          <button class="btn" type="submit" style="margin-top:1rem">Voir mon résultat</button>
+        </form>
+
+        <!-- Résultat -->
+        <div id="quizResult" class="quiz__result" style="display:none; margin-top:2rem">
+          <h2>Votre résultat</h2>
+          <p id="quizText"></p>
+
+          <a href="profils.html" class="btn btn--ghost" style="margin-top:1rem">
+            Voir mes compatibilités
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Affinity — Prototype étudiant.
+      <a href="mailto:sgr.claire@gmail.com?subject=Contact%20Affinity&body=Bonjour%2C%20je%20vous%20écris%20suite%20au%20test.">
+        Nous contacter
+      </a></p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // année dynamique
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // bascule de mode dans l'en-tête
+    const root = document.documentElement;
+    document.getElementById("btnSimilar").addEventListener("click", () => {
+      root.setAttribute("data-match", "similar");
+    });
+    document.getElementById("btnOpposites").addEventListener("click", () => {
+      root.setAttribute("data-match", "opposites");
+    });
+
+    // Test
+    const form = document.getElementById("affinityTest");
+    const quizResult = document.getElementById("quizResult");
+    const quizText = document.getElementById("quizText");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      let similar = 0;
+      let opposites = 0;
+
+      for (const [, value] of data.entries()) {
+        if (value === "similar") similar++;
+        else opposites++;
+      }
+
+      quizResult.style.display = "block";
+
+      if (similar >= opposites) {
+        root.setAttribute("data-match", "similar");
+        quizText.innerHTML = `
+          Vous êtes plutôt <strong>team Ressemblance</strong>.<br>
+          Votre personnalité valorise l’harmonie, la stabilité et la continuité culturelle.
+        `;
+      } else {
+        root.setAttribute("data-match", "opposites");
+        quizText.innerHTML = `
+          Vous êtes plutôt <strong>team Opposés</strong>.<br>
+          Vous aimez la nouveauté, la stimulation et la découverte de mondes différents du vôtre.
+        `;
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+/* =========================================
+   AFFINITY — Design System (Noir & Blanc)
+   Thèmes : clair (similar) / sombre (opposites)
+   Typo : serif chic (titres) + sans contemporaine (texte)
+   ========================================= */
+
+/* ---------- Reset doux + base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--fg);
+  accent-color: var(--accent);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Variables par défaut ---------- */
+:root {
+  /* Typographies */
+  --font-serif: "Georgia", "Times New Roman", ui-serif, serif;   /* titres */
+  --font-sans: "Inter", "SF Pro Text", system-ui, -apple-system, Arial, sans-serif;
+
+  /* Palette N&B */
+  --white:#fff; --black:#000;
+  --g-10:#f7f7f7; --g-20:#eee; --g-30:#e4e4e4; --g-40:#cfcfcf;
+  --g-50:#b3b3b3; --g-60:#8f8f8f; --g-70:#6b6b6b; --g-80:#4a4a4a; --g-90:#2a2a2a;
+
+  /* Thème (surclassé par data-match) */
+  --bg: var(--white);
+  --fg: var(--black);
+  --muted: var(--g-70);
+  --elev: var(--g-10);
+  --outline: var(--g-30);
+  --outline-strong: var(--g-60);
+  --card: var(--white);
+  --accent: var(--black);
+  --accent-contrast: var(--white);
+
+  /* Rythme & UI */
+  --radius-xs: 6px; --radius-sm: 10px; --radius-md: 14px;
+  --gap-1:.5rem; --gap-2:.75rem; --gap-3:1rem; --gap-4:1.25rem; --gap-5:1.75rem;
+  --shadow-1: 0 1px 0 rgba(0,0,0,.06), 0 1px 12px rgba(0,0,0,.05);
+  --shadow-2: 0 18px 45px rgba(0,0,0,.18);
+
+  --container: 1120px;
+  --t: 180ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* ---------- Thèmes ---------- */
+:root[data-match="similar"] {
+  --bg: var(--white); 
+  --fg: var(--black);
+  --muted: var(--g-70); 
+  --elev: var(--g-10);
+  --outline: var(--g-30); 
+  --outline-strong: var(--g-60);
+  --card: var(--white); 
+  --accent: var(--black); 
+  --accent-contrast: var(--white);
+}
+
+:root[data-match="opposites"] {
+  --bg: var(--black); 
+  --fg: var(--white);
+  --muted: var(--g-50); 
+  --elev: var(--g-90);
+  --outline: var(--g-80); 
+  --outline-strong: var(--g-60);
+  --card: #0d0d0d; 
+  --accent: var(--white); 
+  --accent-contrast: var(--black);
+}
+
+/* Préférence système (si pas de choix explicite) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-match]) {
+    --bg: var(--black); 
+    --fg: var(--white);
+    --muted: var(--g-50); 
+    --elev: var(--g-90);
+    --outline: var(--g-80); 
+    --outline-strong: var(--g-60);
+    --card:#0d0d0d; 
+    --accent: var(--white); 
+    --accent-contrast: var(--black);
+  }
+}
+
+/* ---------- Grille & conteneurs ---------- */
+.container { 
+  width: min(100% - 2rem, var(--container)); 
+  margin-inline: auto; 
+}
+
+main .container { 
+  padding-inline: .5rem; 
+} /* souffle latéral pour pages longues */
+
+.grid { 
+  display: grid; 
+  gap: var(--gap-4); 
+}
+
+.grid--2 { 
+  grid-template-columns: 1fr 1fr; 
+}
+
+.grid--3 { 
+  grid-template-columns: repeat(3, 1fr); 
+}
+
+/* Grille responsive pour cartes */
+.grid--cards { 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+@media (max-width: 900px) {
+  .grid--2, 
+  .grid--3 { 
+    grid-template-columns: 1fr; 
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .main-nav .list--inline {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Typo ---------- */
+h1, h2, h3, .display {
+  font-family: var(--font-serif);
+  letter-spacing: .2px;
+  line-height: 1.2;
+  margin: 0 0 .6em;
+}
+
+h1 { 
+  font-size: clamp(2rem, 3vw, 3rem); 
+  letter-spacing:.1px; 
+}
+
+h2 { 
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem); 
+}
+
+h3 { 
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem); 
+}
+
+p { 
+  margin: 0 0 1em; 
+  color: var(--fg); 
+}
+
+.lead { 
+  font-size: 1.1rem; 
+  color: var(--muted); 
+  max-width: 60ch; 
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Liens minimalistes */
+a {
+  color: var(--fg);
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  padding-bottom: 1px;
+  transition: opacity var(--t), background-size var(--t), color var(--t);
+}
+
+a:hover { 
+  opacity: .8; 
+  background-size: 0 1px; 
+}
+
+/* ---------- Header / Nav ---------- */
+.header {
+  position: sticky; 
+  top: 0; 
+  z-index: 10;
+  backdrop-filter: blur(14px);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  border-bottom: 1px solid var(--outline);
+}
+
+.nav { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: var(--gap-3); 
+  padding: .9rem 0; 
+}
+
+.logo-title { 
+  display:flex; 
+  align-items:center; 
+  gap:.6rem; 
+  font-family:var(--font-serif); 
+  font-weight:700; 
+  letter-spacing:.3px; 
+}
+
+.logo-title img {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.25));
+}
+
+.main-nav .list--inline a { 
+  padding:.3rem .2rem; 
+  font-size:.95rem;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  --btn-bg: var(--accent); 
+  --btn-fg: var(--accent-contrast);
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  gap: .55rem; 
+  padding: .7rem 1rem;
+  border-radius: var(--radius-sm); 
+  border: 1px solid transparent;
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,.14), transparent 55%), var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 600; 
+  cursor: pointer; 
+  user-select: none;
+  transition: transform var(--t), opacity var(--t), background var(--t), color var(--t), box-shadow var(--t);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
+.btn:hover { 
+  transform: translateY(-1px); 
+  box-shadow: 0 16px 30px rgba(0,0,0,.28);
+}
+
+.btn:active { 
+  transform: translateY(0); 
+  box-shadow: 0 6px 14px rgba(0,0,0,.18);
+}
+
+.btn--ghost { 
+  --btn-bg: transparent; 
+  --btn-fg: var(--fg); 
+  border-color: var(--outline); 
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  background: color-mix(in oklab, var(--elev) 70%, transparent);
+}
+
+.btn--subtle { 
+  --btn-bg: var(--elev); 
+  --btn-fg: var(--fg); 
+  border-color: var(--outline); 
+  box-shadow:none;
+}
+
+/* ---------- Champs & formulaires ---------- */
+.field { 
+  display: grid; 
+  gap: .4rem; 
+}
+
+.label { 
+  font-size: .9rem; 
+  color: var(--muted); 
+}
+
+.input, .select, .textarea {
+  width: 100%; 
+  background: var(--card); 
+  color: var(--fg);
+  border: 1px solid var(--outline); 
+  border-radius: var(--radius-sm);
+  padding: .75rem .9rem; 
+  transition: border-color var(--t), box-shadow var(--t), background var(--t);
+}
+
+.input::placeholder { 
+  color: color-mix(in oklab, var(--muted) 80%, transparent); 
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none; 
+  border-color: var(--outline-strong);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+/* ---------- Cartes / Profils ---------- */
+.card {
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,.09), transparent 55%), var(--card);
+  border:1px solid var(--outline); 
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1); 
+  padding: var(--gap-4);
+  display:grid; 
+  gap: var(--gap-3);
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t), background var(--t);
+  height: 100%; /* égaliser */
+}
+
+.card:hover { 
+  transform: translateY(-4px); 
+  box-shadow: var(--shadow-2); 
+  border-color: var(--outline-strong); 
+}
+
+.card__header { 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap: var(--gap-3); 
+}
+
+.card__header + p { 
+  margin-top: .25rem; 
+}
+
+.avatar { 
+  width:64px; 
+  aspect-ratio:1; 
+  border-radius:50%; 
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.5), transparent 55%), var(--elev); 
+  border:1px solid var(--outline); 
+}
+
+/* Badges */
+.badges { 
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:.4rem; 
+}
+
+.badge {
+  display:inline-flex; 
+  align-items:center; 
+  gap:.4rem;
+  padding:.35rem .6rem; 
+  border-radius:999px;
+  background:var(--elev); 
+  border:1px solid var(--outline);
+  font-size:.85rem; 
+  color:var(--fg); 
+  line-height:1;
+}
+
+.badge__dot { 
+  width:.5rem; 
+  aspect-ratio:1; 
+  border-radius:50%; 
+  background:var(--fg); 
+  translate:0 .5px; 
+}
+
+/* Services tiers (monochrome) */
+.badge--spotify .badge__dot,
+.badge--babelio .badge__dot,
+.badge--letterboxd .badge__dot { 
+  background: var(--fg); 
+}
+
+/* KPI compatibilité */
+.kpi { 
+  display:grid; 
+  gap:.4rem; 
+  margin-top:.25rem; 
+}
+
+.kpi__bar { 
+  height:8px; 
+  border-radius:999px; 
+  background:var(--elev); 
+  overflow:clip; 
+  border:1px solid var(--outline); 
+}
+
+.kpi__fill { 
+  height:100%; 
+  width:var(--p,50%); 
+  background:var(--fg); 
+  transition: width 280ms ease; 
+}
+
+/* Liste de KPI pour la page profils */
+.kpi-list {
+  list-style: none;
+  padding-left: 0;
+  margin: .75rem 0 0;
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+/* ---------- Sections / Héros ---------- */
+.section { 
+  padding: clamp(2.2rem, 5vw, 3rem) 0; 
+}
+
+.hero { 
+  padding: clamp(3rem, 6vw, 6rem) 0; 
+  border-bottom:1px solid var(--outline); 
+}
+
+.hero--video { 
+  display:grid; 
+  place-items:center; 
+  padding:4rem 0; 
+}
+
+.hero--video video { 
+  width:min(900px, 92vw); 
+  border:1px solid var(--outline); 
+  border-radius:12px; 
+  filter: grayscale(100%); 
+}
+
+/* Visual doc image */
+.doc-image {
+  max-width: min(900px, 100%);
+  border-radius: 14px;
+  border: 1px solid var(--outline);
+  box-shadow: var(--shadow-1);
+}
+
+/* ---------- Listes ---------- */
+.list { 
+  display:grid; 
+  gap:.75rem; 
+}
+
+.list--inline { 
+  display:flex; 
+  gap:.8rem; 
+  flex-wrap:wrap; 
+}
+
+/* ---------- Chips (filtres, sources) ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.chip {
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  border: 1px solid var(--outline);
+  background: var(--elev);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* ---------- TOC (Sommaire du webdoc) ---------- */
+.toc {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--outline);
+  padding: .9rem 1rem;
+  margin-bottom: 2rem;
+  background: color-mix(in oklab, var(--elev) 85%, transparent);
+  font-size: .95rem;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap: .75rem 1.2rem;
+}
+
+/* ---------- Quiz (test de personnalité) ---------- */
+.quiz { 
+  display:grid; 
+  gap: var(--gap-4); 
+}
+
+.quiz__question { 
+  font-family: var(--font-serif); 
+  font-size: 1.05rem; 
+}
+
+.quiz__question legend {
+  margin-bottom: .6rem;
+}
+
+.quiz__option {
+  display:grid; 
+  align-items:start; 
+  grid-template-columns:1.2rem 1fr; 
+  gap:.75rem;
+  padding:.7rem .9rem; 
+  border:1px solid var(--outline); 
+  border-radius: var(--radius-sm);
+  background: var(--card); 
+  transition: border-color var(--t), background var(--t), box-shadow var(--t);
+}
+
+.quiz__option:hover { 
+  border-color: var(--outline-strong); 
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+
+.quiz__option input[type="radio"] {
+  margin-top: .3rem;
+}
+
+.quiz__result {
+  background: var(--card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--outline);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-1);
+}
+
+/* Ancien .option remplacé par .quiz__option (cohérent avec HTML) */
+
+/* ---------- Glossaire & Biblio ---------- */
+article { 
+  display:grid; 
+  gap:1.25rem; 
+}
+
+article section { 
+  scroll-margin-top: 6rem; 
+}
+
+dl { 
+  display:grid; 
+  gap:.6rem; 
+}
+
+dt { 
+  font-weight:700; 
+}
+
+dd { 
+  margin:0 0 .6rem 0; 
+  color: var(--muted); 
+}
+
+/* Guillemets françaises pour <q> */
+q { 
+  quotes: "« " " »" "‹ " " ›"; 
+}
+
+q::before { 
+  content: open-quote; 
+}
+
+q::after { 
+  content: close-quote; 
+}
+
+/* Liens de définition / retour d’usage */
+.def-ref { 
+  text-decoration: underline dotted; 
+  text-underline-offset: 2px; 
+}
+
+.backref { 
+  font-size: .9rem; 
+  color: var(--muted); 
+  margin-left: .35rem; 
+}
+
+.biblio {
+  list-style: none;
+  padding-left: 0;
+}
+
+.biblio li { 
+  margin:.4rem 0; 
+}
+
+/* COinS invisible */
+.Z3988 {
+  display: none;
+}
+
+/* ---------- Utils ---------- */
+.stack-1 > * + * { margin-top: var(--gap-1); }
+.stack-2 > * + * { margin-top: var(--gap-2); }
+.stack-3 > * + * { margin-top: var(--gap-3); }
+
+.center { 
+  display:grid; 
+  place-items:center; 
+}
+
+.hidden { 
+  display:none !important; 
+}
+
+/* ---------- États / Accessibilité ---------- */
+:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--accent) 35%, transparent);
+  outline-offset: 2px; 
+  border-radius: 6px;
+}
+
+[aria-busy="true"] { 
+  cursor: progress; 
+}
+
+/* Réduction d’animations si nécessaire */
+@media (prefers-reduced-motion: reduce) {
+  * { 
+    transition: none !important; 
+    animation: none !important; 
+  }
+}
+
+/* Boost contraste si demandé */
+@media (prefers-contrast: more) {
+  :root {
+    --outline: color-mix(in oklab, var(--fg) 20%, var(--outline));
+    --outline-strong: color-mix(in oklab, var(--fg) 40%, var(--outline-strong));
+  }
+}
+
+/* ---------- Footer ---------- */
+.footer { 
+  border-top:1px solid var(--outline); 
+  padding:2rem 0; 
+  color:var(--muted); 
+  font-size:.95rem; 
+}

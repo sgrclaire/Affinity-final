@@ -599,6 +599,15 @@ q::after {
   margin:.4rem 0; 
 }
 
+/* Correction ancrage du glossaire (header sticky) */
+[id^="g-"] {
+  scroll-margin-top: 7rem;
+}
+
+dt[id^="g-"] {
+  padding-top: .2rem;
+}
+
 /* COinS invisible */
 .Z3988 {
   display: none;

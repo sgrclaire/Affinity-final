@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr" data-match="similar">
+<head>
+  <meta charset="utf-8">
+  <title>Affinity — Mentions légales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mentions légales du projet Affinity (Master CTM — Document numérique).">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/logo-heart-puzzle.svg" as="image" type="image/svg+xml">
+</head>
+
+<body>
+
+  <!-- HEADER GLOBAL -->
+  <header class="header">
+    <div class="container nav">
+
+      <a class="logo-title brand" href="index.html" aria-label="Retour à l’accueil">
+        <img src="assets/logo-heart-puzzle.svg" alt="Logo Affinity">
+        <span>Affinity</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="list--inline">
+          <a href="index.html">Accueil</a>
+          <a href="profils.html">Profils</a>
+          <a href="quiz.html">Test</a>
+          <a href="webdoc.html">Webdoc</a>
+          <a href="mentions.html" aria-current="page">Mentions</a>
+        </div>
+      </nav>
+
+      <div class="list--inline" role="group" aria-label="Choix de mode">
+        <button class="btn btn--ghost" id="btnSimilar" type="button">Ressemblance</button>
+        <button class="btn" id="btnOpposites" type="button">Opposés</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main class="container" style="padding:2.2rem 0 3rem; max-width:750px">
+
+    <h1>Mentions légales</h1>
+    <p class="lead">Projet pédagogique réalisé dans le cadre du cours « Document numérique » (Master CTM — Université Paris 1 Panthéon-Sorbonne).</p>
+
+    <section class="stack-2" style="margin-top:2rem">
+
+      <h2>1. Éditeurs du site</h2>
+      <p>
+        Ce site a été conçu et développé par :
+      </p>
+      <ul>
+        <li><strong>Claire (sgr.claire@gmail.com)</strong></li>
+        <li><strong>Constance</strong></li>
+      </ul>
+      <p>
+        dans le cadre d’un projet universitaire sous la direction pédagogique de 
+        <strong>Gérald Kembellec</strong>.
+      </p>
+
+      <h2>2. Nature du site</h2>
+      <p>
+        Affinity est un <strong>prototype étudiant</strong>.  
+        Il ne collecte <strong>aucune donnée personnelle</strong>, n’utilise aucune API réelle, et n’a pas vocation 
+        à une exploitation commerciale.
+      </p>
+      <p>
+        Les profils, correspondances, données culturelles et résultats du test sont <strong>fictifs</strong> et 
+        uniquement destinés à illustrer une démarche de réflexion sur les rencontres en ligne.
+      </p>
+
+      <h2>3. Responsabilité</h2>
+      <p>
+        Le contenu du site est fourni à titre pédagogique.  
+        Les auteurs déclinent toute responsabilité en cas d’interprétation ou de réutilisation du prototype
+        en dehors du cadre du cours.
+      </p>
+
+      <h2>4. Propriété intellectuelle & crédits</h2>
+      <ul>
+        <li>Le design, les textes, et le code HTML/CSS/JS sont réalisés dans le cadre du Master CTM.</li>
+        <li>Les marques Spotify, Babelio et Letterboxd restent la propriété de leurs détenteurs respectifs.</li>
+        <li>Les visuels présents (schémas, éléments graphiques) sont créés par l’équipe du projet Affinity.</li>
+      </ul>
+
+      <h2>5. Licence de ré-exploitation</h2>
+      <p>
+        Sauf mention contraire, l’ensemble de ce site est mis à disposition sous licence  
+        <strong>Creative Commons CC BY-NC 4.0</strong> :  
+        <em>réutilisation autorisée pour un usage non commercial, sous réserve de citer la source.</em>
+      </p>
+
+      <h2>6. Contact</h2>
+      <p>
+        Pour toute question liée au projet :
+      </p>
+      <p>
+        <a href="mailto:sgr.claire@gmail.com?subject=Contact%20Affinity&body=Bonjour,%20je%20vous%20%C3%A9cris%20depuis%20la%20page%20Mentions.">
+          Écrire à l’équipe Affinity
+        </a>
+      </p>
+
+      <h2>7. Hébergement</h2>
+      <p>
+        Le site est hébergé gratuitement via <strong>GitHub Pages</strong>, service proposé par GitHub, Inc.
+      </p>
+
+      <h2>8. Remerciements</h2>
+      <p>
+        Merci à <strong>Gérald Kembellec</strong> pour la rigueur, les exigences et l’esprit du cours,  
+        et pour nous avoir appris que derrière chaque HTML bien structuré…  
+        se cache un document numérique prêt à être analysé 📚✨
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Affinity — Prototype étudiant.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const root = document.documentElement;
+    document.getElementById("btnSimilar").addEventListener("click", () => {
+      root.setAttribute("data-match", "similar");
+    });
+    document.getElementById("btnOpposites").addEventListener("click", () => {
+      root.setAttribute("data-match", "opposites");
+    });
+  </script>
+
+</body>
+</html>

@@ -661,3 +661,28 @@ dt[id^="g-"] {
   color:var(--muted); 
   font-size:.95rem; 
 }
+
+.muted {
+   margin:0;
+}
+  
+
+.schema-fonctionnement {
+   width:100%; 
+   max-width:100%; 
+   margin:1rem auto; 
+   text-align:center; 
+   display:block;
+}
+    
+.img-schema {
+    width:300px; 
+   max-width:100%; 
+   height:auto; 
+   display:block;
+   margin:auto;
+}
+
+    <figcaption 
+      style="margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#666;">
+      Figure 1 — Architecture générale du fonctionnement des API (source : OpenClassrooms).

@@ -683,6 +683,9 @@ dt[id^="g-"] {
    margin:auto;
 }
 
-    <figcaption 
-      style="margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#666;">
-      Figure 1 — Architecture générale du fonctionnement des API (source : OpenClassrooms).
+.figcaption-schema {
+   margin-top:0.5rem;
+   font-size:0.85rem; 
+   font-style:italic; 
+   color:#666;
+}

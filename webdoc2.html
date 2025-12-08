@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="fr" data-match="similar">
+<head>
+  <meta charset="utf-8">
+  <title>Affinity — Web documentaire (Document numérique)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Web documentaire Affinity : la rencontre par affinités culturelles, entre fondements scientifiques, architecture technologique et design éditorial.">
+  <meta name="author" content="Claire & Constance — Master CTM">
+  <meta name="keywords" content="web documentaire, affinités culturelles, rencontres, algorithmes, homophilie, biais cognitifs">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- HEADER GLOBAL -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo-title brand" href="index.html" aria-label="Retour à l’accueil">
+        <span>Affinity — Webdoc</span>
+      </a>
+
+      <!-- NAV PRINCIPALE DU SITE -->
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="list--inline">
+          <a href="index.html">Accueil</a>
+          <a href="profils.html">Profils</a>
+          <a href="quiz.html">Test</a>
+          <a href="webdoc.html" aria-current="page">Webdoc</a>
+          <a href="mentions.html">Mentions</a>
+        </div>
+      </nav>
+
+      <!-- SWITCH MODE -->
+      <div class="list--inline" role="group" aria-label="Choix de mode">
+        <button class="btn btn--ghost" id="btnSimilar" type="button" title="Qui se ressemble s’assemble">Ressemblance</button>
+        <button class="btn" id="btnOpposites" type="button" title="Les opposés s’attirent">Opposés</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="container webdoc-main">
+
+    <!-- SOMMAIRE ENCADRÉ -->
+    <aside class="webdoc-summary" aria-labelledby="sommaire-titre">
+      <h2 id="sommaire-titre">Sommaire</h2>
+      <ol>
+        <li><a href="#section-intro">Introduction : la rencontre à l’ère numérique</a></li>
+        <li><a href="#section-concept">Le concept Affinity</a></li>
+        <li><a href="#section-fondements">Les fondements scientifiques</a></li>
+        <li><a href="#section-architecture">Architecture technologique</a></li>
+        <li><a href="#glossaire">Glossaire</a></li>
+        <li><a href="#biblio">Bibliographie</a></li>
+        <li><a href="#sitographie">Sitographie</a></li>
+      </ol>
+    </aside>
+
+    <!-- ARTICLE HTML5 GLOBAL -->
+    <article id="webdoc-article" aria-label="Web documentaire Affinity">
+
+      <!-- 1. INTRODUCTION -->
+      <section id="section-intro" class="webdoc-section">
+        <h1>Affinity : la rencontre par les affinités culturelles</h1>
+
+        <p>
+          À l’ère du numérique, la manière dont nous créons des liens sociaux et affectifs a profondément évolué. 
+          Les plateformes de rencontres en ligne ont révolutionné notre approche des relations humaines, mais elles 
+          reposent souvent sur des critères superficiels : apparence physique, localisation géographique ou 
+          questionnaires génériques de personnalité.
+        </p>
+
+        <p>
+          Affinity propose une approche radicalement différente, fondée sur l’hypothèse que nos 
+          <a class="def-ref" href="#g-metadonnees" id="u-metadonnees">goûts culturels</a> — en musique, 
+          littérature et cinéma — révèlent des dimensions profondes de notre personnalité et de nos valeurs. 
+          En utilisant les <a class="def-ref" href="#g-api" id="u-api-intro">API</a> de plateformes culturelles 
+          reconnues (Spotify, Babelio, Letterboxd), le projet interroge ce que nos écoutes, nos lectures et nos 
+          visionnages disent de nous.
+        </p>
+
+        <p>
+          Ce web documentaire constitue le cœur textuel du prototype : il expose les fondements théoriques, 
+          scientifiques et techniques d’Affinity, tout en questionnant les mécanismes qui régissent l’attraction 
+          et la compatibilité humaine dans un environnement numérique.
+        </p>
+      </section>
+
+      <!-- 2. LE CONCEPT AFFINITY -->
+      <section id="section-concept" class="webdoc-section">
+        <h2>Le concept Affinity</h2>
+
+        <h3>Deux philosophies de la rencontre</h3>
+        <p>
+          Affinity repose sur une dualité fondamentale dans les mécanismes d’attraction interpersonnelle. 
+          Plutôt que d’imposer une seule vision de la compatibilité, la plateforme permet de choisir entre 
+          deux approches complémentaires : la <strong>similarité</strong> et la <strong>complémentarité</strong>.
+        </p>
+
+        <!-- CARTES 2 COLONNES -->
+        <div class="webdoc-cards-2">
+          <section class="webdoc-card">
+            <h4>Qui se ressemble s’assemble</h4>
+            <p>
+              Cette approche, ancrée dans le principe d’
+              <a class="def-ref" href="#g-homophilie" id="u-homophilie">homophilie</a>, postule que nous sommes 
+              naturellement attirés par celles et ceux qui partagent nos goûts et nos valeurs. Les recherches en 
+              psychologie sociale montrent que la similarité crée un socle de compréhension mutuelle, de confiance 
+              et de stabilité relationnelle.
+            </p>
+          </section>
+
+          <section class="webdoc-card">
+            <h4>Les opposés s’attirent</h4>
+            <p>
+              À l’inverse, l’
+              <a class="def-ref" href="#g-heterophilie" id="u-heterophilie">hétérophilie</a> suggère que la 
+              différence peut être une source d’enrichissement mutuel. Les couples complémentaires bénéficient 
+              d’une dynamique où chacun apporte ce qui manque à l’autre, créant une synergie fondée sur la 
+              diversité plutôt que sur la ressemblance.
+            </p>
+          </section>
+        </div>
+
+        <h3>Le rôle des goûts culturels</h3>
+        <p>
+          Pourquoi privilégier les goûts culturels comme base de matching&nbsp;? Selon le sociologue 
+          Pierre Bourdieu, nos préférences culturelles ne sont pas arbitraires : elles reflètent notre 
+          <em>habitus</em>, c’est-à-dire l’ensemble des dispositions acquises qui structurent notre perception 
+          du monde. Aimer Coltrane ou Dostoïevski n’est pas qu’une question de goût : c’est le reflet de notre 
+          éducation, de nos valeurs et de notre sensibilité esthétique et intellectuelle.
+        </p>
+
+        <blockquote class="webdoc-quote">
+          «&nbsp;Le goût classe, et classe celui qui classe.&nbsp;»<br>
+          <cite>— Pierre Bourdieu, <span lang="fr">La Distinction</span>, 1979</cite>
+        </blockquote>
+
+        <p>
+          En analysant ces <a class="def-ref" href="#g-traces" id="u-traces">traces numériques</a>, Affinity va 
+          au-delà des simples listes de préférences pour comprendre les structures profondes qui organisent nos goûts 
+          et, par extension, nos affinités potentielles avec autrui.
+        </p>
+      </section>
+
+      <!-- 3. FONDEMENTS SCIENTIFIQUES -->
+      <section id="section-fondements" class="webdoc-section">
+        <h2>Les fondements scientifiques</h2>
+
+        <h3>Psychologie de l’attraction</h3>
+        <p>
+          La recherche en psychologie sociale a identifié plusieurs facteurs clés dans l’attraction 
+          interpersonnelle. Le modèle de l’<em>affinité élective</em> suggère que nous sommes attirés par 
+          celles et ceux qui partagent nos attitudes, nos valeurs et nos intérêts. Les travaux de 
+          <strong>Byrne et Nelson (1965)</strong> ont montré que la similarité des attitudes est un prédicteur 
+          puissant de l’attraction, phénomène parfois désigné comme « loi de l’attraction-similarité ».
+        </p>
+
+        <p>
+          Cependant, la théorie de la complémentarité proposée par <strong>Winch (1958)</strong> ouvre une autre 
+          perspective : dans les relations à long terme, les partenaires peuvent se compléter plutôt que se 
+          ressembler, chacun apportant des qualités différentes mais compatibles. Cette tension entre similarité 
+          et complémentarité se trouve au cœur du design d’Affinity.
+        </p>
+
+        <h3>Les biais cognitifs dans le choix du partenaire</h3>
+        <p>
+          Notre approche prend également en compte les 
+          <a class="def-ref" href="#g-biais" id="u-biais">biais cognitifs</a> qui influencent nos décisions en 
+          matière de rencontres. Le <strong>biais de confirmation</strong> nous pousse à rechercher les informations 
+          qui confirment nos croyances préexistantes, tandis que l’<strong>effet de simple exposition</strong> 
+          nous fait préférer ce qui nous est familier.
+        </p>
+
+        <p>
+          En intégrant une dimension de <a class="def-ref" href="#g-serendipite" id="u-serendipite">sérendipité</a> 
+          calculée, Affinity cherche à dépasser ces biais pour proposer des connexions à la fois rassurantes et 
+          surprenantes, sans céder à une personnalisation fermée sur elle-même.
+        </p>
+      </section>
+
+      <!-- 4. ARCHITECTURE TECHNOLOGIQUE -->
+      <section id="section-architecture" class="webdoc-section">
+        <h2>Architecture technologique</h2>
+
+        <h3>Les API au cœur du système</h3>
+        <p>
+          L’architecture d’Affinity repose sur l’intégration de trois 
+          <a class="def-ref" href="#g-api" id="u-api-archi">API</a> majeures :
+        </p>
+
+        <ul class="webdoc-api-list">
+          <li>
+            <strong>Spotify API</strong> — accès aux habitudes d’écoute, genres préférés, artistes suivis et playlists. 
+            L’analyse des patterns d’écoute révèle des informations riches sur la personnalité musicale de 
+            l’utilisateur·rice.
+          </li>
+          <li>
+            <strong>Babelio API</strong> — récupération des livres lus, notations et critiques. Les préférences 
+            littéraires éclairent les valeurs intellectuelles et émotionnelles.
+          </li>
+          <li>
+            <strong>Letterboxd API</strong> — historique des films visionnés, genres et réalisateurs préférés. 
+            Le cinéma, art total, offre une fenêtre singulière sur les goûts esthétiques.
+          </li>
+        </ul>
+
+        <h3>Traitement des données et respect de la vie privée</h3>
+        <p>
+          Toutes les données collectées sont envisagées dans le cadre du 
+          <a class="def-ref" href="#g-rgpd" id="u-rgpd">RGPD</a>. Les utilisateur·rices conservent un contrôle 
+          total sur leurs informations et peuvent à tout moment modifier ou supprimer leurs données. 
+          Le prototype décrit dans ce webdoc reste une simulation : aucune connexion réelle aux comptes 
+          Spotify, Babelio ou Letterboxd n’est effectuée.
+        </p>
+
+        <p>
+          Une <a class="def-ref" href="#g-taxonomie" id="u-taxonomie">taxonomie culturelle</a> permet de classifier 
+          les œuvres selon plusieurs critères (genre, époque, ambiance, style), afin de dépasser la simple logique 
+          de liste pour construire des profils riches et nuancés.
+        </p>
+
+        <p>
+          Enfin, l’architecture documentaire intègre ce que nous appelons avec humour l’
+          <a class="def-ref" href="#g-kembellec" id="u-kembellec">effet Kembellec</a> : une attention particulière 
+          portée aux métadonnées, aux ontologies bien structurées et aux petits <em>easter eggs</em> disséminés 
+          dans le code.
+        </p>
+      </section>
+
+      <!-- 5. GLOSSAIRE -->
+      <section id="glossaire" class="webdoc-section">
+        <h2>Glossaire</h2>
+
+        <div class="glossary-grid">
+
+          <section class="glossary-card" id="g-api">
+            <h3>
+              API (Application Programming Interface)
+              <a class="backref" href="#u-api-intro" aria-label="Revenir à la première occurrence d’API">↩︎</a>
+              <a class="backref" href="#u-api-archi" aria-label="Revenir à l’architecture API">↩︎</a>
+            </h3>
+            <p>
+              Interface de programmation qui permet à différentes applications de communiquer entre elles. 
+              Dans Affinity, les API de Spotify, Babelio et Letterboxd servent à récupérer des données 
+              culturelles structurées.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-matching">
+            <h3>
+              Algorithme de matching
+            </h3>
+            <p>
+              Système mathématique qui analyse les préférences culturelles des utilisateur·rices pour déterminer 
+              leur compatibilité. Affinity combine similarité des goûts, complémentarité des profils et résultats 
+              du test de personnalité.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-biais">
+            <h3>
+              Biais cognitif
+              <a class="backref" href="#u-biais" aria-label="Revenir à la section sur les biais">↩︎</a>
+            </h3>
+            <p>
+              Distorsion dans le traitement d’une information. Dans le contexte des rencontres, les biais peuvent 
+              influencer nos choix (biais de confirmation, effet de simple exposition, biais de similarité, etc.).
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-serendipite">
+            <h3>
+              Sérendipité
+              <a class="backref" href="#u-serendipite" aria-label="Revenir à la section sur la sérendipité">↩︎</a>
+            </h3>
+            <p>
+              Capacité à faire des découvertes heureuses par hasard. En matière de rencontres, la sérendipité 
+              joue un rôle crucial : certaines des meilleures connexions naissent de rencontres inattendues. 
+              Affinity intègre une part de sérendipité calculée pour proposer des profils surprenants.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-metadonnees">
+            <h3>
+              Métadonnées culturelles
+              <a class="backref" href="#u-metadonnees" aria-label="Revenir à l’introduction des métadonnées">↩︎</a>
+            </h3>
+            <p>
+              Informations structurées sur les contenus culturels : genres musicaux, dates de sortie, thèmes, 
+              styles artistiques, etc. Elles permettent d’analyser les goûts au-delà des simples titres.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-taxonomie">
+            <h3>
+              Taxonomie culturelle
+              <a class="backref" href="#u-taxonomie" aria-label="Revenir à la section taxonomie">↩︎</a>
+            </h3>
+            <p>
+              Classification hiérarchique des œuvres culturelles (genres, sous-genres, influences, époques). 
+              Elle aide à organiser les contenus pour proposer des correspondances fines entre utilisateur·rices.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-affinite">
+            <h3>
+              Affinité élective
+            </h3>
+            <p>
+              Concept popularisé par Goethe pour désigner l’attraction profonde entre deux personnes fondée sur 
+              des sensibilités communes. Il inspire la vision d’Affinity : nos goûts culturels révèlent une part 
+              essentielle de notre personnalité.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-homophilie">
+            <h3>
+              Homophilie
+              <a class="backref" href="#u-homophilie" aria-label="Revenir à la carte homophilie">↩︎</a>
+            </h3>
+            <p>
+              Tendance des individus à créer des liens avec des personnes qui leur ressemblent. En sciences 
+              sociales, ce principe bien documenté montre que nous sommes naturellement attirés par celles et ceux 
+              qui partagent nos valeurs et nos goûts.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-heterophilie">
+            <h3>
+              Hétérophilie
+              <a class="backref" href="#u-heterophilie" aria-label="Revenir à la carte hétérophilie">↩︎</a>
+            </h3>
+            <p>
+              Principe inverse de l’homophilie : l’attraction pour ce qui est différent. Certaines personnes 
+              s’épanouissent davantage dans des relations où les différences créent une dynamique enrichissante.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-rgpd">
+            <h3>
+              RGPD
+              <a class="backref" href="#u-rgpd" aria-label="Revenir à la section RGPD">↩︎</a>
+            </h3>
+            <p>
+              Règlement Général sur la Protection des Données : cadre juridique européen qui encadre la collecte, 
+              le traitement et la conservation des données personnelles.
+            </p>
+          </section>
+
+          <section class="glossary-card" id="g-kembellec">
+            <h3>
+              Effet Kembellec
+              <a class="backref" href="#u-kembellec" aria-label="Revenir à la section effet Kembellec">↩︎</a>
+            </h3>
+            <p>
+              Phénomène (très) sérieusement observé selon lequel l’exposition répétée à des enseignements de 
+              qualité en sciences de l’information augmente la probabilité de produire des systèmes documentaires 
+              élégants, riches en métadonnées et en easter eggs pédagogiques.
+            </p>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- 6. BIBLIOGRAPHIE -->
+      <section id="biblio" class="webdoc-section">
+        <h2>Bibliographie</h2>
+
+        <ul class="biblio-list">
+          <li>
+            <div class="biblio-card">
+              <p>
+                Bourdieu, P. (1979). <em>La Distinction : critique sociale du jugement</em>. 
+                Les Éditions de Minuit.
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=La%20Distinction&rft.aulast=Bourdieu&rft.au=Pierre%20Bourdieu&rft.date=1979&rft.pub=Les%20%C3%89ditions%20de%20Minuit"></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="biblio-card">
+              <p>
+                Byrne, D., &amp; Nelson, D. (1965). <span lang="en">Attraction as a linear function of proportion 
+                of positive reinforcements</span>. <em>Journal of Personality and Social Psychology</em>, 1(6), 659–663.
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:article&rft.genre=article&rft.jtitle=Journal%20of%20Personality%20and%20Social%20Psychology&rft.atitle=Attraction%20as%20a%20linear%20function%20of%20proportion%20of%20positive%20reinforcements&rft.aulast=Byrne&rft.au=Don%20Byrne&rft.au=Don%20Nelson&rft.date=1965&rft.volume=1&rft.issue=6&rft.spage=659&rft.epage=663"></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="biblio-card">
+              <p>
+                Winch, R. (1958). <span lang="en">Mate Selection: A Study of Complementary Needs</span>. 
+                Harper &amp; Brothers.
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=Mate%20Selection&rft.aulast=Winch&rft.au=Robert%20Winch&rft.date=1958&rft.pub=Harper%20%26%20Brothers"></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="biblio-card">
+              <p>
+                McPherson, M., Smith-Lovin, L., &amp; Cook, J. M. (2001). 
+                «&nbsp;Birds of a Feather: Homophily in Social Networks&nbsp;». 
+                <em>Annual Review of Sociology</em>, 27, 415–444.
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:article&rft.genre=article&rft.jtitle=Annual%20Review%20of%20Sociology&rft.atitle=Birds%20of%20a%20Feather%3A%20Homophily%20in%20Social%20Networks&rft.aulast=McPherson&rft.au=Miller%20McPherson&rft.date=2001&rft.volume=27&rft.spage=415&rft.epage=444"></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="biblio-card">
+              <p>
+                Goethe, J. W. (1968). <em>Les Affinités électives</em>. 
+                Traduit par J.-F. Angelloz. Aubier (œuvre originale publiée en 1809).
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=Les%20Affinit%C3%A9s%20%C3%A9lectives&rft.aulast=Goethe&rft.au=Johann%20Wolfgang%20von%20Goethe&rft.date=1968&rft.pub=Aubier"></span>
+            </div>
+          </li>
+        </ul>
+
+        <p class="muted">
+          Les balises COinS (<code>.Z3988</code>) rendent ces références détectables par des outils 
+          comme Zotero (clic droit&nbsp;: « Enregistrer dans Zotero »).
+        </p>
+      </section>
+
+      <!-- 7. SITOGRAPHIE -->
+      <section id="sitographie" class="webdoc-section">
+        <h2>Sitographie</h2>
+
+        <ul class="biblio-list">
+          <li>
+            <div class="biblio-card">
+              <p>
+                <strong>Spotify for Developers</strong> — Documentation officielle de l’API Spotify. 
+                Consulté le 26 novembre 2025.  
+                <a href="https://developer.spotify.com/documentation/web-api" target="_blank" rel="noopener">
+                  Accéder à la ressource
+                </a>
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft.genre=unknown&rft.title=Spotify%20Web%20API&rft_id=https://developer.spotify.com/documentation/web-api"></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="biblio-card">
+              <p>
+                <strong>Babelio</strong> — Plateforme de partage de lectures et de critiques littéraires. 
+                Consulté le 26 novembre 2025.  
+                <a href="https://www.babelio.com" target="_blank" rel="noopener">
+                  Accéder à la ressource
+                </a>
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft.genre=unknown&rft.title=Babelio&rft_id=https://www.babelio.com"></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="biblio-card">
+              <p>
+                <strong>Letterboxd</strong> — Réseau social pour cinéphiles, notes et critiques de films. 
+                Consulté le 26 novembre 2025.  
+                <a href="https://letterboxd.com" target="_blank" rel="noopener">
+                  Accéder à la ressource
+                </a>
+              </p>
+              <span class="Z3988" title="ctx_ver=Z39.88-2004&rft.genre=unknown&rft.title=Letterboxd&rft_id=https://letterboxd.com"></span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- PIED DE PAGE -->
+  <footer class="footer">
+    <div class="container stack-2">
+      <p>
+        <strong>Mentions légales :</strong> site pédagogique réalisé dans le cadre du cours 
+        « Document numérique » (Master CTM) encadré par Gérald Kembellec. Prototype sans collecte 
+        réelle de données.
+      </p>
+      <p>
+        <strong>Licence :</strong> Creative Commons CC BY-NC 4.0 (réutilisation non commerciale 
+        avec attribution). © <span id="year"></span> Affinity.
+      </p>
+      <p>
+        <a href="mailto:sgr.claire@gmail.com?subject=Projet%20Affinity%20%E2%80%94%20Webdoc&body=Bonjour,%20je%20vous%20%C3%A9cris%20%C3%A0%20propos%20du%20webdoc%20Affinity.">
+          Nous écrire
+        </a>
+      </p>
+      <p class="muted" style="font-size:.8rem">
+        Si vous lisez cette ligne en détail, Monsieur Kembellec, sachez que vous êtes notre prof préféré.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // année dynamique
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // bascule de thème
+    const root = document.documentElement;
+    document.getElementById('btnSimilar').addEventListener('click', () => {
+      root.setAttribute('data-match', 'similar');
+    });
+    document.getElementById('btnOpposites').addEventListener('click', () => {
+      root.setAttribute('data-match', 'opposites');
+    });
+  </script>
+</body>
+</html>

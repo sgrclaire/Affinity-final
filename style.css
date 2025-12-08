@@ -689,3 +689,212 @@ dt[id^="g-"] {
    font-style:italic; 
    color:#666;
 }
+
+/* ===========================
+   WEBDOC LAYOUT
+   =========================== */
+
+.webdoc-main {
+  padding: 2.5rem 0 3.5rem;
+}
+
+/* Sommaire encadré */
+
+.webdoc-summary {
+  margin-bottom: 2.5rem;
+  padding: 1.75rem 2rem;
+  border-radius: 1.25rem;
+  background: #f7f7f7;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.webdoc-summary h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.webdoc-summary ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.webdoc-summary li + li {
+  margin-top: .3rem;
+}
+
+.webdoc-summary a {
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(0,0,0,.25);
+}
+
+.webdoc-summary a:hover {
+  border-bottom-style: solid;
+}
+
+/* Sections de l'article */
+
+.webdoc-section {
+  margin-bottom: 2.75rem;
+  max-width: 70ch;
+}
+
+.webdoc-section h1,
+.webdoc-section h2,
+.webdoc-section h3,
+.webdoc-section h4 {
+  scroll-margin-top: 6rem; /* pour le header sticky */
+}
+
+/* Cartes 2 colonnes (Qui se ressemble / Opposés) */
+
+.webdoc-cards-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.webdoc-card {
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+}
+
+.webdoc-card h4 {
+  margin-top: 0;
+  margin-bottom: .75rem;
+}
+
+/* Citation */
+
+.webdoc-quote {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid #7c3aed;
+  background: #f5f3ff;
+  border-radius: 0 1rem 1rem 0;
+  font-style: italic;
+}
+
+.webdoc-quote cite {
+  display: block;
+  margin-top: .5rem;
+  font-style: normal;
+  font-size: .9rem;
+  color: #555;
+}
+
+/* Liste API */
+
+.webdoc-api-list {
+  list-style: none;
+  padding-left: 0;
+  margin: .75rem 0 1.75rem;
+}
+
+.webdoc-api-list li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.webdoc-api-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: .1rem;
+  font-size: 1.1rem;
+}
+
+/* Glossaire */
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.glossary-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background: #f9fafb;
+  border: 1px solid rgba(0,0,0,.04);
+}
+
+.glossary-card h3 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+
+.glossary-card p {
+  margin: 0;
+}
+
+.backref {
+  font-size: .9rem;
+  margin-left: .4rem;
+  text-decoration: none;
+  opacity: .7;
+}
+
+.backref:hover {
+  opacity: 1;
+}
+
+/* Liens de définition dans le texte */
+
+.def-ref {
+  text-decoration: underline dotted;
+  text-underline-offset: 0.15em;
+}
+
+.def-ref:hover {
+  text-decoration-style: solid;
+}
+
+/* Bibliographie & sitographie */
+
+.biblio-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0;
+  max-width: 70ch;
+}
+
+.biblio-card {
+  padding: 1rem 1.25rem;
+  border-radius: 0.9rem;
+  background: #f9fafb;
+  border: 1px solid rgba(0,0,0,.05);
+  margin-bottom: .75rem;
+}
+
+.biblio-card p {
+  margin: 0;
+}
+
+.biblio-card a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(124, 58, 237, .4);
+}
+
+.biblio-card a:hover {
+  border-bottom-color: rgba(124, 58, 237, 1);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .webdoc-cards-2,
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .webdoc-main {
+    padding-top: 2rem;
+  }
+}

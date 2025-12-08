@@ -736,7 +736,6 @@ dt[id^="g-"] {
 
 .webdoc-section {
   margin-bottom: 2.75rem;
-  max-width: 70ch;
 }
 
 .webdoc-section h1,
@@ -862,7 +861,6 @@ dt[id^="g-"] {
   list-style: none;
   padding-left: 0;
   margin: 1rem 0 0;
-  max-width: 70ch;
 }
 
 .biblio-card {

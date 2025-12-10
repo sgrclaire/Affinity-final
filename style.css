@@ -426,17 +426,23 @@ a:hover {
   border-bottom:1px solid var(--outline); 
 }
 
-.hero--video { 
-  display:grid; 
-  place-items:center; 
-  padding:4rem 0; 
+/* ====== VIDEOSECTION ====== */
+.hero-video {
+    display: flex;
+    justify-content: center;  /* centre horizontalement */
+    align-items: center;      /* centre verticalement si nécessaire */
+    width: 98%; /* largeur de la section */
+    height: 500px; /* hauteur de la section, tu peux modifier */
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 30px 30px;
 }
 
-.hero--video video { 
-  width:min(900px, 92vw); 
-  border:1px solid var(--outline); 
-  border-radius:12px; 
-  filter: grayscale(100%); 
+.hero-video-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* la vidéo remplit la section en gardant le ratio */
+    display: block;
 }
 
 /* Visual doc image */

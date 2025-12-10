@@ -896,3 +896,8 @@ dt[id^="g-"] {
     padding-top: 2rem;
   }
 }
+
+/* Blagounette */
+.muted {
+  color: white;
+}
